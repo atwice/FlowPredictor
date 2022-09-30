@@ -1,0 +1,54 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32901.215
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FlowPredictor", "FlowPredictor\FlowPredictor.vcxproj", "{3F179361-38C3-4F18-8D7D-78C54139067C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{58CEA0EE-2FBD-4050-929C-2CFE5A14AEAB} = {58CEA0EE-2FBD-4050-929C-2CFE5A14AEAB}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FlowPredictor.CL", "FlowPredictor.CL\FlowPredictor.CL.vcxproj", "{564819C2-A902-429B-9FE2-C23231B198E3}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libtensorflow", "libtensorflow\libtensorflow.vcxproj", "{58CEA0EE-2FBD-4050-929C-2CFE5A14AEAB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3F179361-38C3-4F18-8D7D-78C54139067C}.Debug|x64.ActiveCfg = Debug|x64
+		{3F179361-38C3-4F18-8D7D-78C54139067C}.Debug|x64.Build.0 = Debug|x64
+		{3F179361-38C3-4F18-8D7D-78C54139067C}.Debug|x86.ActiveCfg = Debug|Win32
+		{3F179361-38C3-4F18-8D7D-78C54139067C}.Debug|x86.Build.0 = Debug|Win32
+		{3F179361-38C3-4F18-8D7D-78C54139067C}.Release|x64.ActiveCfg = Release|x64
+		{3F179361-38C3-4F18-8D7D-78C54139067C}.Release|x64.Build.0 = Release|x64
+		{3F179361-38C3-4F18-8D7D-78C54139067C}.Release|x86.ActiveCfg = Release|Win32
+		{3F179361-38C3-4F18-8D7D-78C54139067C}.Release|x86.Build.0 = Release|Win32
+		{564819C2-A902-429B-9FE2-C23231B198E3}.Debug|x64.ActiveCfg = Debug|x64
+		{564819C2-A902-429B-9FE2-C23231B198E3}.Debug|x64.Build.0 = Debug|x64
+		{564819C2-A902-429B-9FE2-C23231B198E3}.Debug|x86.ActiveCfg = Debug|Win32
+		{564819C2-A902-429B-9FE2-C23231B198E3}.Debug|x86.Build.0 = Debug|Win32
+		{564819C2-A902-429B-9FE2-C23231B198E3}.Release|x64.ActiveCfg = Release|x64
+		{564819C2-A902-429B-9FE2-C23231B198E3}.Release|x64.Build.0 = Release|x64
+		{564819C2-A902-429B-9FE2-C23231B198E3}.Release|x86.ActiveCfg = Release|Win32
+		{564819C2-A902-429B-9FE2-C23231B198E3}.Release|x86.Build.0 = Release|Win32
+		{58CEA0EE-2FBD-4050-929C-2CFE5A14AEAB}.Debug|x64.ActiveCfg = Debug|x64
+		{58CEA0EE-2FBD-4050-929C-2CFE5A14AEAB}.Debug|x64.Build.0 = Debug|x64
+		{58CEA0EE-2FBD-4050-929C-2CFE5A14AEAB}.Debug|x86.ActiveCfg = Debug|Win32
+		{58CEA0EE-2FBD-4050-929C-2CFE5A14AEAB}.Debug|x86.Build.0 = Debug|Win32
+		{58CEA0EE-2FBD-4050-929C-2CFE5A14AEAB}.Release|x64.ActiveCfg = Release|x64
+		{58CEA0EE-2FBD-4050-929C-2CFE5A14AEAB}.Release|x64.Build.0 = Release|x64
+		{58CEA0EE-2FBD-4050-929C-2CFE5A14AEAB}.Release|x86.ActiveCfg = Release|Win32
+		{58CEA0EE-2FBD-4050-929C-2CFE5A14AEAB}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CD083C4B-140C-4078-8A29-10F1836F3500}
+	EndGlobalSection
+EndGlobal
