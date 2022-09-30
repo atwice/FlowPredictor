@@ -1,0 +1,2 @@
+Invoke-WebRequest -OutFile 'libtensorflow-cpu-windows-x86_64-2.9.1.zip' -Uri 'https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow-cpu-windows-x86_64-2.9.1.zip'
+Expand-Archive -LiteralPath 'libtensorflow-cpu-windows-x86_64-2.9.1.zip' -DestinationPath .
