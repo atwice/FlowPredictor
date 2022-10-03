@@ -7,12 +7,15 @@
 #endif // FLOWPREDICTOR_EXPORTS
 
 extern "C" {
+	// Установить путь к директории с отлажочными журналами. Можно относительный - тогда считаем относительно расположения DLL
+	PREDICTOR_API void __stdcall FlowPredictor_SetLogPath(const wchar_t* path);
+	
 	// Установить путь к директории с моделями. Можно относительный - тогда считаем относительно расположения DLL
 	PREDICTOR_API void __stdcall FlowPredictor_SetModelPath(const wchar_t* path);
 
 	// Загрузить модель. Формат TensorFlow::SAVED_MODEL
 	// Имя модели совпадает с именем директории, в которой расположен файл saved_model.pb
-	PREDICTOR_API void __stdcall FlowPredictor_LoadModel(const wchar_t* modelName);
+	PREDICTOR_API bool __stdcall FlowPredictor_LoadModel(const wchar_t* modelName);
 
 	// Удалить ранее загруженную модель
 	PREDICTOR_API void __stdcall FlowPredictor_ReleaseModel(const wchar_t* modelName);

@@ -62,7 +62,8 @@ void processOneVector()
 
 int main()
 {
-    FlowPredictor_SetModelPath(L"c:\\Users\\atwice\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Models\\");
+    FlowPredictor_SetLogPath(L"%AppData%\\MetaQuotes\\Terminal\\Common\\Files\\Models\\");
+    FlowPredictor_SetModelPath(L"%AppData%\\MetaQuotes\\Terminal\\Common\\Files\\Models\\");
     FlowPredictor_LoadModel(ModelName);
     processOneVector();
     //processCsv("c:\\Users\\atwice\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Data\\vectorBaseCross-test.csv");
