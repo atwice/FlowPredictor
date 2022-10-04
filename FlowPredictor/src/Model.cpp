@@ -19,15 +19,21 @@ double Model::Predict(int vectorSize, const double* vector)
 		return 0.0;
 	}
 
-	std::vector<double> inputVector(vector, vector + vectorSize);
-	std::vector<int64_t> shape({ vectorSize });
-	cppflow::tensor input(inputVector, shape);
-	auto output = tensorflowModel({ std::make_tuple(InputNodeName, input) }, { OutputNodeName });
-	std::vector<float> resultVector = output[0].get_data<float>();
-	const double result = resultVector[0];
-	
-	logStream << " -> " << result << std::endl;
-	return result;
+	try {
+		std::vector<double> inputVector(vector, vector + vectorSize);
+		std::vector<int64_t> shape({ vectorSize });
+		cppflow::tensor input(inputVector, shape);
+		auto output = tensorflowModel({ std::make_tuple(InputNodeName, input) }, { OutputNodeName });
+		std::vector<float> resultVector = output[0].get_data<float>();
+		const double result = resultVector[0];
+		logStream << " -> " << result << std::endl;
+		return result;
+
+	} catch (std::runtime_error& err) {
+		logStream << L"Cant execute model:" << std::endl;
+		logStream << err.what() << std::endl;
+		return 0.0;
+	}
 }
 
 void Model::logNodeNames()
