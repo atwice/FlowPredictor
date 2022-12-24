@@ -56,7 +56,17 @@ void processOneVector()
     };
     double result = FlowPredictor_Predict(ModelName, static_cast<int>(test.size()), test.data());
 
-    std::cout << "Predict: " << result;
+    std::cout << "Predict: " << result << std::endl;
+
+    // тот же вектор, но через другой интерфейс
+    std::vector<int> shape{ 90 };
+    float outVector[1];
+    bool ok = FlowPredictor_PredictTensor(ModelName,
+        1, shape.data(), test.data(), 1, outVector);
+
+    std::cout << "Second interface is ok: " << ok << std::endl;
+    std::cout << "Second interface prediction: " << outVector[0] << std::endl;
+
     std::getchar();
 }
 
