@@ -7,11 +7,14 @@ public:
 
 	// Получить предсказание по модели
 	double Predict(int vectorSize, const double* vector);
+	bool Predict(int shapeSize, const int* shape, const double* tensor,
+		int outVectorSize, float* outVector);
 
 private:
 	cppflow::model tensorflowModel;
 	std::wofstream logStream;
 
 	void logNodeNames();
-	void logPredict(int vectorSize, const double* vector);
+	void logPredict(const std::vector<int64_t>& shape, const std::vector<double>& data);
+	void logResult(const std::vector<float>&);
 };

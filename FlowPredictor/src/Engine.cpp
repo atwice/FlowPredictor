@@ -105,3 +105,11 @@ double Engine::Predict(const wchar_t* modelName, int vectorSize, const double* v
 	return models[modelName]->Predict(vectorSize, vector);
 }
 
+bool Engine::Predict(const wchar_t* modelName,
+	int shapeSize, const int* shape, const double* tensor,
+	int outVectorSize, float* outVector)
+{
+	return models[modelName]->Predict(shapeSize, shape, tensor,
+		outVectorSize, outVector);
+}
+

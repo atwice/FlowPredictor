@@ -19,6 +19,9 @@ public:
 	void Release(const wchar_t* modelName);
 	// Сделать предсказание
 	double Predict(const wchar_t* modelName, int vectorSize, const double* vector);
+	bool Predict(const wchar_t* modelName,
+		int shapeSize, const int* shape, const double* tensor,
+		int outVectorSize, float* outVector);
 
 private:
 	// директория, в которой хранится dll

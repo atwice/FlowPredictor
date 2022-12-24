@@ -26,3 +26,13 @@ extern "C" double __stdcall FlowPredictor_Predict(const wchar_t* modelName, int 
 {
 	return Engine::Instance().Predict(modelName, vectorSize, vector);
 }
+
+extern "C" bool  __stdcall FlowPredictor_PredictTensor(
+		const wchar_t* modelName,
+		int shapeSize, const int* shape, const double* tensor,
+		int outVectorSize, float* outVector)
+{
+	return Engine::Instance().Predict(modelName,
+		shapeSize, shape, tensor,
+		outVectorSize, outVector);
+}

@@ -22,4 +22,21 @@ extern "C" {
 
 	// Получить предсказание модели по вектору признаков
 	PREDICTOR_API double __stdcall FlowPredictor_Predict(const wchar_t* modelName, int vectorSize, const double* vector);
+
+	// Получить предсказание модели по тензору
+	// Входные параметры:
+	// `shapeSize` и `shape` описывают размерность входного тензора
+	// `shapeSize` - количество измерений тензора, то есть размер входного массива `shape`
+	// `shape` - размеры тензора по разным измерениям. Например, {1024, 5, 3}
+	// `tensor` - сами признаким
+	// Результат
+	// `outVector` - массив, в который будет записан результат
+	// `outVectorSize` - размер выходного массива `outVector`, в который записан резльтат
+	//
+	// Возвращает `true`, если всё хорошо.
+	// `false` - если размер входного тензора не совпадает с ожиданиями модели,
+	// или размер `outVectorSize` не совпадает с размером выхода модели
+	PREDICTOR_API bool __stdcall FlowPredictor_PredictTensor( const wchar_t* modelName,
+		int shapeSize, const int* shape, const double* tensor,
+		int outVectorSize, float* outVector );
 }
