@@ -74,7 +74,7 @@ int main()
 {
     FlowPredictor_SetLogPath(L"%AppData%\\MetaQuotes\\Terminal\\Common\\Files\\Models\\");
     FlowPredictor_SetModelPath(L"%AppData%\\MetaQuotes\\Terminal\\Common\\Files\\Models\\");
-    FlowPredictor_LoadModel(ModelName);
+    FlowPredictor_LoadModelWithInput( ModelName, L"serving_default_input_input" );
     processOneVector();
     //processCsv("c:\\Users\\atwice\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Data\\vectorBaseCross-test.csv");
 }

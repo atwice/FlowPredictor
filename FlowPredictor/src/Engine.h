@@ -14,7 +14,7 @@ public:
 	// установить путь к директории с моделями
 	void SetModelPath(const wchar_t* path);
 	// Загрузить модель
-	bool Load(const wchar_t* modelName);
+	bool Load(const wchar_t* modelName, const wchar_t* inputLayer = nullptr);
 	// Удалить модель
 	void Release(const wchar_t* modelName);
 	// Сделать предсказание

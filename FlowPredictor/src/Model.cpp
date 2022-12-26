@@ -8,7 +8,8 @@ const char* const OutputNodeName = "StatefulPartitionedCall";
 
 Model::Model(const std::filesystem::path& _modelPath, const std::filesystem::path& _logPath) :
 	tensorflowModel(_modelPath.string()),
-	logStream(_logPath, std::ios::app)
+	logStream(_logPath, std::ios::app),
+	inputLayer(InputNodeName)
 {
 	logNodeNames();
 }
@@ -26,7 +27,7 @@ double Model::Predict(int vectorSize, const double* vector)
 	}
 
 	try {
-		auto output = tensorflowModel({ std::make_tuple(InputNodeName, input) }, { OutputNodeName });
+		auto output = tensorflowModel({ std::make_tuple(inputLayer, input) }, { OutputNodeName });
 		std::vector<float> resultVector = output[0].get_data<float>();
 		const double result = resultVector[0];
 		logStream << " -> " << result << std::endl;
@@ -48,7 +49,7 @@ bool Model::Predict(int shapeSize, const int* shape, const double* tensor,
 
 	cppflow::tensor input(inputTensor, shapeVec);
 	try {
-		auto output = tensorflowModel( { std::make_tuple( InputNodeName, input ) }, { OutputNodeName } );
+		auto output = tensorflowModel( { std::make_tuple(inputLayer, input) }, { OutputNodeName } );
 		std::vector<float> resultVector = output[0].get_data<float>();
 		logResult(resultVector);
 		

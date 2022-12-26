@@ -17,6 +17,12 @@ extern "C" bool __stdcall FlowPredictor_LoadModel(const wchar_t* modelName)
 	return Engine::Instance().Load(modelName);
 }
 
+extern "C" bool __stdcall FlowPredictor_LoadModelWithInput(
+	const wchar_t* modelName, const wchar_t* inputLayer)
+{
+	return Engine::Instance().Load(modelName, inputLayer);
+}
+
 extern "C" void __stdcall FlowPredictor_ReleaseModel(const wchar_t* modelName)
 {
 	Engine::Instance().Release(modelName);

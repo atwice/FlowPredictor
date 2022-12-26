@@ -60,7 +60,16 @@ static inline bool isFileExist(const fs::path& filePath)
 	return fileStatus.type() != fs::file_type::not_found;
 }
 
-bool Engine::Load(const wchar_t* _modelName)
+static inline std::string w2a(const wchar_t* wstr)
+{
+	char buffer[256] = { 0 };
+	const int wcharLen = static_cast<int>(::wcslen(wstr));
+	const int actualSize = WideCharToMultiByte( CP_UTF8, 0, wstr, wcharLen,
+		buffer, 255, nullptr, nullptr);
+	return std::string(buffer);
+}
+
+bool Engine::Load(const wchar_t* _modelName, const wchar_t* inputLayer /*= 0*/)
 {
 	std::wstring modelName = _modelName;
 	if (models.count(modelName) > 0) {
@@ -91,6 +100,10 @@ bool Engine::Load(const wchar_t* _modelName)
 		return false;
 	}
 	
+	if (inputLayer != nullptr) {
+		model->SetInputLayer(w2a(inputLayer));
+	}
+
 	models[modelName] = std::move(model);
 	return true;
 }
@@ -106,8 +119,8 @@ double Engine::Predict(const wchar_t* modelName, int vectorSize, const double* v
 }
 
 bool Engine::Predict(const wchar_t* modelName,
-	int shapeSize, const int* shape, const double* tensor,
-	int outVectorSize, float* outVector)
+		int shapeSize, const int* shape, const double* tensor,
+		int outVectorSize, float* outVector)
 {
 	return models[modelName]->Predict(shapeSize, shape, tensor,
 		outVectorSize, outVector);
